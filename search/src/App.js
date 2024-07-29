@@ -24,7 +24,9 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {data.map(item =>(
+          {data.filter(item =>{
+            return search.toLowerCase() === ''? item : item.first_name.toLowerCase().includes(search);
+          }).map(item =>(
             <tr key={item.id}>
                 <td>{item.first_name}</td>
                 <td>{item.last_name}</td>
